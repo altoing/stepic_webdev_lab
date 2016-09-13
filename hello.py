@@ -1,7 +1,22 @@
-def app(environ, start_response):
-        data = b"Hello, World! TEST\n"
-        start_response("200 OK", [
-            ("Content-Type", "text/plain"),
-            ("Content-Length", str(len(data)))
-        ])
-        return iter([data])
+from cgi import parse_qs, escape
+
+def application (environ, start_response):
+
+    # Returns a dictionary in which the values are lists
+    d = parse_qs(environ['QUERY_STRING'])
+
+    st = ""
+    for key, val in d.iteritems():
+        st = st + key + "=" + str(val[0]) + "\n"
+
+    response_body = st
+    status = '200 OK'
+
+    response_headers = [
+        ('Content-Type', 'text/plain'),
+        ('Content-Length', str(len(response_body)))
+    ]
+
+    start_response(status, response_headers)
+    return [response_body]
+
