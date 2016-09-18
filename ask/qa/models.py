@@ -28,7 +28,7 @@ class Question(models.Model):
     text = models.TextField()
     added_at = models.DateField(auto_now_add=True)
     rating = models.IntegerField()
-    author = models.CharField(max_length=255)
+    author = models.ForeignKey(User)
     likes = models.TextField()
 
 class Answers(models.Model):
