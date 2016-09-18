@@ -8,7 +8,7 @@ mkdir /etc/gunicorn.d/
 
 ln -sf /home/box/web/etc/hello.py /etc/gunicorn.d/hello.py
 
-/etc/init.d/mysql start﻿
+sudo /etc/init.d/mysql start
 mysql -u root -e "create database ASK_PROJECT;"
 
 /home/box/web/ask/manage.py syncdb

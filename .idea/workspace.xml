@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="034ea0f8-b1de-41fd-a4ad-879dc1f289f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ask/qa/models.py" afterPath="$PROJECT_DIR$/ask/qa/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init.sh" afterPath="$PROJECT_DIR$/init.sh" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
