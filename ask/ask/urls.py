@@ -1,3 +1,4 @@
+# coding=utf-8
 """ask URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,17 +14,27 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+#Сначало надо импортнуть view
+#from qa.views import test, popular, question
+#
+#
+#
+#
+#
+#
+
 from django.conf.urls import url
 from django.contrib import admin
-from qa.views import test
+from qa.views import test, popular, question, mainpage
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', test, name='test'),
+    url(r'^$', mainpage, name='mainpage'),
     url(r'^login/', test, name='test'),
     url(r'^signup/', test, name='test'),
-    url(r'^question/*/', test, name='test'),
+    url(r'^question/(?P<id>\d+)', question, name='question'),
+    url(r'^question/$', question, name='question'),
     url(r'^ask/', test, name='test'),
-    url(r'^popular/', test, name='test'),
+    url(r'^popular/', popular, name='popular'),
     url(r'^new/', test, name='test'),
 ]

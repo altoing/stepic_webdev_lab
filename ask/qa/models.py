@@ -17,8 +17,10 @@ class Users(models.Model):
         return self.username
 
 class QuestionManager(models.Manager):
-    def new():
-        pass
+    def new(self):
+        latest_question_list = Question.objects.order_by("added_at")[:5]
+        output = '<br>'.join([q.text for q in latest_question_list])
+        return output
     def popular():
         pass
 
@@ -30,6 +32,8 @@ class Question(models.Model):
     rating = models.IntegerField(null=True)
     author = models.ForeignKey(User)
     likes = models.ManyToManyField(User, related_name='+')
+    def __unicode__(self):
+        return self.title
 
 class Answer(models.Model):
     text = models.TextField()

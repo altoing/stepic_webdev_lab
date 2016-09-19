@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #git clone https://github.com/altoing/stepic_webdev_lab /home/box/web && sudo /home/box/web/init.sh
 sudo ln -sf /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
