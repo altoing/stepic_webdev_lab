@@ -13,3 +13,5 @@ sudo /etc/init.d/mysql start
 mysql -u root -e "create database ASK_PROJECT;"
 
 /home/box/web/ask/manage.py syncdb
+
+gunicorn -c /home/box/web/etc/ask.py  ask.wsgi &
