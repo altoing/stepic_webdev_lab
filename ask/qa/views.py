@@ -14,12 +14,21 @@ def test(request, *args, **kwargs):
 
 def mainpage (request):
     latest_question_list = Question.objects.order_by("-added_at")[:10]
-    output = '<br>'.join([q.text for q in latest_question_list])
-    return HttpResponse(output)
+
+    title_list = []
+    links_list = []
+    for q in latest_question_list:
+        title_list.append(q.text)
+        links_list.append("/question/{}/".format(q.pk))
+
+    ziplist = zip(title_list, links_list)
+
+    return render(request, 'mainpage.html',  {'title_list': title_list, 'links_list': links_list, "ziplist": ziplist}, content_type="text/html")
 
 def popular(request, *args, **kwargs):
     latest_question_list = Question.objects.order_by("rating")[:10]
     output = '<br>'.join([q.text for q in latest_question_list])
+
     return HttpResponse(output)
 
 def question(request, id=None):
