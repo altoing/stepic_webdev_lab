@@ -4,7 +4,7 @@ from django.http import Http404
 # Create your views here.
 
 from django.http import HttpResponse
-from .models import Users, Question
+from .models import Users, Question, Answer
 
 class NewsView(DetailView):
     model = Users
@@ -18,12 +18,12 @@ def mainpage (request):
     title_list = []
     links_list = []
     for q in latest_question_list:
-        title_list.append(q.text)
+        title_list.append(q.title)
         links_list.append("/question/{}/".format(q.pk))
 
     ziplist = zip(title_list, links_list)
 
-    return render(request, 'mainpage.html',  {'title_list': title_list, 'links_list': links_list, "ziplist": ziplist}, content_type="text/html")
+    return render(request, 'mainpage.html', {"ziplist": ziplist}, content_type="text/html")
 
 def popular(request, *args, **kwargs):
     latest_question_list = Question.objects.order_by("rating")[:10]
@@ -36,4 +36,7 @@ def question(request, id=None):
         question = Question.objects.get(pk=id)
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
-    return render(request, 'question.html', {'question': question})
+
+    answer_list  = Answer.objects.filter(question_id=id)
+
+    return render(request, 'question.html', {'question': question, 'answer_list': answer_list})

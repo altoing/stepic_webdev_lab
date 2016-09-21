@@ -40,4 +40,6 @@ class Answer(models.Model):
     added_at = models.DateField(auto_now_add=True)
     question = models.ForeignKey(Question)
     author = models.ForeignKey(User)
+    def __unicode__(self):
+        return self.question.title
 

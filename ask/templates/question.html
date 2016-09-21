@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2>Hi there!</h2>
 This is question # {{ question.pk }}<br>
 <h3> {{ question.title }} </h3>
 
 <pre>{{ question.text }}</pre>
 Rating is {{question.rating}}
+
+<h3>COMMENTS</h3>
+
+{% for x in answer_list %}
+    <b>{{x.author}}:</b> {{ x.text }}<br>
+{% endfor %}
+
+
+
 {% endblock %}
