@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="questions">
+{% for x in ziplist  %}
+    <b><a href="{{ x.1 }}"> {{ x.0 }}<a></b> <br>
+{% endfor %}
+</div>
+
+<nav><ul class="paginator">
+{% for p in paginator.page_range  %}
+    <a href="{{ paginator.baseurl }}{{ p }}">{{ p }}</a>
+{% endfor %}
+</ul></nav>
+
+{% endblock %}

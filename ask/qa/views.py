@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import DetailView
 from django.http import Http404
+from django.core.paginator import Paginator
 # Create your views here.
 
 from django.http import HttpResponse
@@ -25,9 +26,48 @@ def mainpage (request):
 
     return render(request, 'mainpage.html', {"ziplist": ziplist}, content_type="text/html")
 
+def mainpage2 (request):
+    question_list = Question.objects.order_by("-added_at")
+    links_list = []
+    page = request.GET.get('page', 1)
+    limit = request.GET.get('limit', 10)
+    paginator = Paginator(question_list, limit)
+    paginator.baseurl = '/?page='
+    page = paginator.page(page)
+    posts = page.object_list
+
+    for q in posts:
+        links_list.append("/question/{}/".format(q.pk))
+    ziplist = zip(posts, links_list)
+
+    return render(request, 'mainpage2.html', {
+        "posts": page.object_list,
+        "paginator": paginator,
+        "page": page,
+        "ziplist": ziplist,
+        }, content_type="text/html")
+
 def popular(request, *args, **kwargs):
-    latest_question_list = Question.objects.order_by("rating")[:10]
-    output = '<br>'.join([q.text for q in latest_question_list])
+    question_list = Question.objects.order_by("rating")
+    links_list = []
+    page = request.GET.get('page', 1)
+    limit = request.GET.get('limit', 10)
+    paginator = Paginator(question_list, limit)
+    paginator.baseurl = '/popular/?page='
+    page = paginator.page(page)
+    posts = page.object_list
+
+    for q in posts:
+        links_list.append("/question/{}/".format(q.pk))
+    ziplist = zip(posts, links_list)
+
+    return render(request, 'popular.html', {
+        "posts": page.object_list,
+        "paginator": paginator,
+        "page": page,
+        "ziplist": ziplist,
+        }, content_type="text/html")
+
 
     return HttpResponse(output)
 
