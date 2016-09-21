@@ -29,7 +29,7 @@ from qa.views import test, popular, question, mainpage, mainpage2
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', mainpage2, name='mainpage'),
+    url(r'^$', mainpage2, name='mainpage2'),
     url(r'^login/', test, name='test'),
     url(r'^signup/', test, name='test'),
     url(r'^question/(?P<id>\d+)', question, name='question'),

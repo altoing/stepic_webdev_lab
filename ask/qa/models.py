@@ -18,11 +18,9 @@ class Users(models.Model):
 
 class QuestionManager(models.Manager):
     def new(self):
-        latest_question_list = Question.objects.order_by("added_at")[:5]
-        output = '<br>'.join([q.text for q in latest_question_list])
-        return output
-    def popular():
-        pass
+        return super (QuestionManager, self).get_queryset().order_by("-added_at")
+    def popular(self):
+        return super (QuestionManager, self).get_queryset().order_by("-rating")
 
 class Question(models.Model):
     objects = QuestionManager()

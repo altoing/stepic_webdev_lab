@@ -27,7 +27,7 @@ def mainpage (request):
     return render(request, 'mainpage.html', {"ziplist": ziplist}, content_type="text/html")
 
 def mainpage2 (request):
-    question_list = Question.objects.order_by("-added_at")
+    question_list = Question.objects.new()
     links_list = []
     page = request.GET.get('page', 1)
     limit = request.GET.get('limit', 10)
@@ -48,7 +48,7 @@ def mainpage2 (request):
         }, content_type="text/html")
 
 def popular(request, *args, **kwargs):
-    question_list = Question.objects.order_by("rating")
+    question_list = Question.objects.popular()
     links_list = []
     page = request.GET.get('page', 1)
     limit = request.GET.get('limit', 10)
