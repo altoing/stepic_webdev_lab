@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="034ea0f8-b1de-41fd-a4ad-879dc1f289f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ask/ask/settings.py" afterPath="$PROJECT_DIR$/ask/ask/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ask/qa/models.py" afterPath="$PROJECT_DIR$/ask/qa/models.py" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +28,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ask/qa/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+            <state relative-caret-position="504">
+              <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
               <folding>
                 <element signature="e#25#64#0" expanded="true" />
               </folding>
@@ -50,8 +52,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ask/qa/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+            <state relative-caret-position="595">
+              <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -113,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/ask/ask/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="488">
-              <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+              <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -160,9 +162,9 @@
         <option value="$PROJECT_DIR$/ask/templates/question.html" />
         <option value="$PROJECT_DIR$/ask/templates/mainpage2.html" />
         <option value="$PROJECT_DIR$/ask/ask/urls.py" />
-        <option value="$PROJECT_DIR$/ask/qa/models.py" />
-        <option value="$PROJECT_DIR$/ask/qa/views.py" />
         <option value="$PROJECT_DIR$/ask/ask/settings.py" />
+        <option value="$PROJECT_DIR$/ask/qa/views.py" />
+        <option value="$PROJECT_DIR$/ask/qa/models.py" />
       </list>
     </option>
   </component>
@@ -173,7 +175,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="745" />
+    <option name="x" value="653" />
     <option name="y" value="27" />
     <option name="width" value="1168" />
     <option name="height" value="1053" />
@@ -498,7 +500,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="745" y="27" width="1168" height="1053" extended-state="4" />
+    <frame x="653" y="27" width="1168" height="1053" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19125214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -882,15 +884,15 @@
     <entry file="file://$PROJECT_DIR$/ask/ask/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
-          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ask/qa/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        <state relative-caret-position="595">
+          <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -899,8 +901,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ask/qa/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        <state relative-caret-position="504">
+          <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
           <folding>
             <element signature="e#25#64#0" expanded="true" />
           </folding>
