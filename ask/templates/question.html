@@ -13,6 +13,14 @@ Rating is {{question.rating}}
     <b>{{x.author}}:</b> {{ x.text }}<br>
 {% endfor %}
 
+<form action="/question/{{ question.pk }}/" method="post">
+    {% csrf_token %}
+    Ваш ответ:<br>
+    {{form.text}}
+    <input type="submit" value="Submit" />
+</form>
+
+
 
 
 {% endblock %}

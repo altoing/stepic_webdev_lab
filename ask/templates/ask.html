@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<form action="/ask/" method="post">
+    {% csrf_token %}
+    Заголовок:
+    {{form.title}}<br>
+    Вопрос:<br>
+    {{form.text}}<br>
+    <input type="submit" value="Submit" />
+</form>
+
+
+{% endblock %}

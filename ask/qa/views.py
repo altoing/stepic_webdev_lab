@@ -1,11 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 from django.views.generic import DetailView
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.core.paginator import Paginator
-# Create your views here.
-
 from django.http import HttpResponse
 from .models import Users, Question, Answer
+from .forms import AskForm, AnswerForm
 
 class NewsView(DetailView):
     model = Users
@@ -68,10 +68,16 @@ def popular(request, *args, **kwargs):
         "ziplist": ziplist,
         }, content_type="text/html")
 
-
-    return HttpResponse(output)
-
 def question(request, id=None):
+    if request.method =='POST':
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            text = form.cleaned_data['text']
+            newanswer = Answer(text=text, question_id=id, author=User.objects.get(username='root'))
+            newanswer.save()
+            return HttpResponseRedirect('/question/{}'.format(id))
+    else:
+        form = AnswerForm()
     try:
         question = Question.objects.get(pk=id)
     except Question.DoesNotExist:
@@ -79,4 +85,19 @@ def question(request, id=None):
 
     answer_list  = Answer.objects.filter(question_id=id)
 
-    return render(request, 'question.html', {'question': question, 'answer_list': answer_list})
+    return render(request, 'question.html', {'question': question, 'answer_list': answer_list, 'form': form})
+
+def ask(request):
+    if request.method == 'POST':
+        form = AskForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            text = form.cleaned_data['text']
+            newquestion = Question(title=title, text=text, author=User.objects.get(username='root'))
+            newquestion.save()
+            pk = newquestion.pk
+            return HttpResponseRedirect('/question/{}'.format(pk))
+    else:
+        form = AskForm()
+
+    return render(request, 'ask.html', {'form': form})
