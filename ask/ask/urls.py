@@ -25,13 +25,14 @@ Including another URLconf
 
 from django.conf.urls import url
 from django.contrib import admin
-from qa.views import test, popular, question, mainpage, mainpage2, ask
+from qa.views import test, popular, question, mainpage2, ask, auth, my_logout
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', mainpage2, name='mainpage2'),
-    url(r'^login/', test, name='test'),
+    url(r'^login/', auth, name='login'),
     url(r'^signup/', test, name='test'),
+    url(r'^logout/', my_logout, name='logout'),
     url(r'^question/(?P<id>\d+)', question, name='question'),
     url(r'^question/$', question, name='question'),
     url(r'^ask/', ask, name='test'),

@@ -2,16 +2,16 @@
 
 {% block body %}
 
-<div class="questions">
+<ul class="container">
 {% for x in ziplist  %}
-    <b><a href="{{ x.1 }}"> {{ x.0 }}<a></b> <br>
+    <li><b><a href="{{ x.1 }}"> {{ x.0 }}</a></b></li>
 {% endfor %}
-</div>
+</ul>
 
-<nav><ul class="paginator">
+<div class="pagination">
 {% for p in paginator.page_range  %}
-    <a href="{{ paginator.baseurl }}{{ p }}">{{ p }}</a>
+<li{% if p == request.GET.page %}class="active"{% endif %}><a href="{{ paginator.baseurl }}{{ p }}">{{ p }}</a></li>
 {% endfor %}
-</ul></nav>
 
+</div>
 {% endblock %}
